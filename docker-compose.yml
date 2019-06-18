@@ -1,0 +1,30 @@
+version: "3.6"
+services:
+  bonsai-front:
+    container_name: bonsai-front
+    build:
+      dockerfile: Dockerfile
+      context: .
+    command: bash -c 'yarn install && yarn start'
+    tty: true
+    stdin_open: true
+    user: node
+    environment:
+      - NODE_ENV=development
+      - TS_NODE_PROJECT=/var/www/tsconfig.json
+      - TZ=America/Sao_Paulo
+    ports:
+      - 3006:3006/tcp
+      - 9222:9222/tcp
+    networks:
+      - bonsai-front
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+
+networks:
+  bonsai-front:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 11.11.2.0/24
