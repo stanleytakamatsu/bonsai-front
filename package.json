@@ -16,7 +16,7 @@
     "bootstrap": "^4.3.1",
     "cerialize": "^0.1.18",
     "inversify": "^5.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
